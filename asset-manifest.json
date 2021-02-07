@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nuzlocke-tracker/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/nuzlocke-tracker/static/js/main.6b83bb18.chunk.js",
-    "main.js.map": "/nuzlocke-tracker/static/js/main.6b83bb18.chunk.js.map",
+    "main.js": "/nuzlocke-tracker/static/js/main.af79a9f3.chunk.js",
+    "main.js.map": "/nuzlocke-tracker/static/js/main.af79a9f3.chunk.js.map",
     "runtime-main.js": "/nuzlocke-tracker/static/js/runtime-main.23d0230c.js",
     "runtime-main.js.map": "/nuzlocke-tracker/static/js/runtime-main.23d0230c.js.map",
     "static/js/2.6a2c743d.chunk.js": "/nuzlocke-tracker/static/js/2.6a2c743d.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.23d0230c.js",
     "static/js/2.6a2c743d.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.6b83bb18.chunk.js"
+    "static/js/main.af79a9f3.chunk.js"
   ]
 }
