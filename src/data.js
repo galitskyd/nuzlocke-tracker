@@ -171,6 +171,20 @@ export const pokeData = [
                 "name": "Mareep",
                 "onGold": true,
                 "onSilver": true
+            },
+            {
+                "name": "Charmander"
+            }
+        ]
+    },
+    {
+        "name": "Kassie's Favorites",
+        "pokemon": [
+            {
+                "name": "Charmander"
+            },
+            {
+                "name": "Ralts"
             }
         ]
     }

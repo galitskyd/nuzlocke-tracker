@@ -13,7 +13,7 @@ import {
   Tab,
   TabPanel
 } from "@chakra-ui/react";
-import { FaPlusCircle } from 'react-icons/fa';
+import { FaPlusCircle, FaSave, FaTrash } from 'react-icons/fa';
 import {pokeData} from './data';
 import TrackItem from './TrackItem';
 
@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const tracker = localStorage.getItem("tracker") || [];
+    const tracker = JSON.parse(localStorage.getItem("tracker")) || [];
 
     this.setState({tracker});
   }
@@ -36,6 +36,18 @@ class App extends React.Component {
     const { tracker } = this.state;
     tracker.push({uid: Math.floor((Math.random() * 1000) + 1)});
     this.setState({tracker})
+  }
+
+  saveCatches = () => {
+    const { tracker } = this.state;
+    localStorage.setItem("tracker", JSON.stringify(tracker));
+
+    return false;
+  }
+
+  clearCatches = () => {
+    localStorage.setItem("tracker", JSON.stringify([]));
+    this.setState({tracker: []});
   }
 
   onRouteChange = (e, uid) => {
@@ -113,6 +125,29 @@ class App extends React.Component {
                       onClick={this.addCatch}>
                       Add Catch
                     </Button>
+                    {
+                      tracker && tracker.length > 0 ? 
+                        <React.Fragment>
+                          <Button
+                            leftIcon={<FaSave />}
+                            colorScheme="green" size="sm"
+                            variant="outline"
+                            onClick={this.saveCatches}
+                          >
+                            Save Tracker
+                          </Button>
+                          <Button
+                            leftIcon={<FaTrash />}
+                            colorScheme="red" size="sm"
+                            variant="outline"
+                            onClick={this.clearCatches}
+                          >
+                            Clear Tracker
+                          </Button>
+                        </React.Fragment>
+                        : null
+                    }
+                    
                   </Stack>
                 </GridItem>
                 <GridItem colSpan={3}>
