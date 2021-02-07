@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select'
+import CreatableSelect from 'react-select/creatable'
 import _ from 'lodash';
 import {IconButton , Grid, GridItem} from "@chakra-ui/react";
 import { FaWindowClose } from 'react-icons/fa';
@@ -28,11 +28,11 @@ class TrackItem extends React.Component {
 
     onRouteChange = (e) => {
         const {onRouteChange, uid} = this.props;
-
-        this.setState({route: e.value});
+        const value = typeof e === "string" ? {value: e} : e;
+        this.setState({route: value.value});
         // TODO: Check for if it is a function. Could err otherwise.
         if (onRouteChange) {
-            onRouteChange(e, uid);
+            onRouteChange(value, uid);
         }
 
         return false;
@@ -40,11 +40,11 @@ class TrackItem extends React.Component {
 
     onPokemonChange = (e) => {
         const {onPokemonChange, uid} = this.props;
-
-        this.setState({pokemon: e.value});
+        const value = typeof e === "string" ? {value: e} : e.value;
+        this.setState({pokemon: value.value});
         // TODO: Check for if it is a function. Could err otherwise.
         if (onPokemonChange) {
-            onPokemonChange(e, uid);
+            onPokemonChange(value, uid);
         }
 
         return false;
@@ -91,14 +91,17 @@ class TrackItem extends React.Component {
                     return {value: name, label: name};
                 });
             });
+
+            pokemonOptions.unshift({value: "Killed", label: "Killed"});
         }
         return (
             <Grid templateColumns="repeat(7, 1fr)" gap={6}>
                 <GridItem colSpan={3}>
                     {route ? <span>{route}</span> :
-                        <Select
+                        <CreatableSelect
                             isSearchable={true}
                             onChange={this.onRouteChange}
+                            onCreateOption={this.onRouteChange}
                             options={routeOptions}
                         />
                     }
@@ -108,9 +111,11 @@ class TrackItem extends React.Component {
                     {route ? 
                         pokemon ? 
                             <span>{pokemon}</span>:
-                            <Select 
-                                onChange={this.onPokemonChange}    
+                            <CreatableSelect 
+                                onChange={this.onPokemonChange}
+                                onCreateOption={this.onPokemonChange}
                                 options={pokemonOptions}
+                                value={"test"}
                             />
                         : null
                     }
