@@ -38,10 +38,9 @@ class TrackItem extends React.Component {
         return false;
     }
 
-    onPokemonChange = (e) => {
+    onPokemonChange = (value) => {
         const {onPokemonChange, uid} = this.props;
-        const value = typeof e === "string" ? {value: e} : e.value;
-        this.setState({pokemon: value.value});
+        this.setState({pokemon: value});
         // TODO: Check for if it is a function. Could err otherwise.
         if (onPokemonChange) {
             onPokemonChange(value, uid);
