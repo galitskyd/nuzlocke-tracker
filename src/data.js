@@ -176,16 +176,5 @@ export const pokeData = [
                 "name": "Charmander"
             }
         ]
-    },
-    {
-        "name": "Kassie's Favorites",
-        "pokemon": [
-            {
-                "name": "Charmander"
-            },
-            {
-                "name": "Ralts"
-            }
-        ]
     }
 ]
